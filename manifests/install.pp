@@ -10,7 +10,6 @@ class nfsen::install {
     'libmailtools-perl',
     'librrds-perl',
     'perl',
-    'php5',
     'rrdtool',
   ]
 
