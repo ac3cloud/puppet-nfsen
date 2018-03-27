@@ -1,0 +1,11 @@
+[Unit]
+Description=Nfsen Netflow Sensor
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/nfsen/bin/nfsen start
+ExecStop=/opt/nfsen/bin/nfsen stop
+
+[Install]
+WantedBy=multi-user.target
