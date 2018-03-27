@@ -59,7 +59,7 @@ class nfsen::configure {
     ensure => present,
     path   => '/opt/nfsen/libexec/NfSenRRD.pm',
     line   => 'if ( $rrd_version >= 1.2 && $rrd_version < 1.6 ) {',
-    match  => 'if \( $rrd_version >= 1.2 && \$rrd_version < 1.5 \) {',
+    match  => 'if \( \$rrd_version >= 1.2 && \$rrd_version < 1.5 \) {',
   } ->
   # Prompts for perl path *sigh*
   # TODO: perhaps 'echo ${perl_path}' rather than 'yes'
