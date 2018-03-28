@@ -47,7 +47,7 @@ class nfsen::configure {
     system => true,
   } ->
 
-  file { '/opt/nfsen/etc/nfsen.conf':
+  file { '/var/lib/nfsen/etc/nfsen.conf':
     ensure  => file,
     owner   => 'root',
     group   => 'root',
