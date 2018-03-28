@@ -15,6 +15,7 @@ class nfsen::service {
 
   service { 'nfsen':
     ensure    => 'running',
+    enable    => true,
     hasstatus => false,
     path      => "${::nfsen::basedir}/bin",
     pattern   => "${::nfsen::basedir}/bin/nfsend"
