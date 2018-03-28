@@ -47,14 +47,6 @@ class nfsen::configure {
     system => true,
   } ->
 
-  file { '/var/lib/nfsen/etc/nfsen.conf':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => template('nfsen/nfsen.conf.erb'),
-  } ->
-
   file_line { 'change_rrd_support':
     ensure => present,
     path   => '/opt/nfsen/libexec/NfSenRRD.pm',
@@ -66,6 +58,14 @@ class nfsen::configure {
   exec { '/usr/bin/yes "" | /opt/nfsen/install.pl etc/nfsen.conf':
     cwd     => '/opt/nfsen',
     creates => "${_basedir}/var",
+  } ->
+
+  file { '/var/lib/nfsen/etc/nfsen.conf':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('nfsen/nfsen.conf.erb'),
   }
 
 }
