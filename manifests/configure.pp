@@ -53,6 +53,15 @@ class nfsen::configure {
     line   => 'if ( $rrd_version >= 1.2 && $rrd_version < 1.6 ) {',
     match  => 'if \( \$rrd_version >= 1.2 && \$rrd_version < 1.5 \) {',
   } ->
+
+  file { '/opt/nfsen/etc/nfsen.conf':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('nfsen/nfsen.conf.erb'),
+  } ->
+
   # Prompts for perl path *sigh*
   # TODO: perhaps 'echo ${perl_path}' rather than 'yes'
   exec { '/usr/bin/yes "" | /opt/nfsen/install.pl etc/nfsen.conf':
