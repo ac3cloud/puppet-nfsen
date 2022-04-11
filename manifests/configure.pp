@@ -50,7 +50,7 @@ class nfsen::configure {
   file_line { 'change_rrd_support':
     ensure => present,
     path   => '/opt/nfsen/libexec/NfSenRRD.pm',
-    line   => 'if ( $rrd_version >= 1.2 && $rrd_version < 1.6 ) {',
+    line   => 'if ( $rrd_version >= 1.2 && $rrd_version < 1.8 ) {',
     match  => 'if \( \$rrd_version >= 1.2 && \$rrd_version < 1.5 \) {',
   } ->
 
